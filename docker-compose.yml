@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  tf:
+    image: hashicorp/terraform:1.1.9
+    volumes:
+      - ./terraform:/terraform
+    working_dir: /terraform
+    environment:
+      - TF_CLI_CONFIG_FILE=.terraformrc

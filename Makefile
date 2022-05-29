@@ -22,4 +22,4 @@ fmt:
 	${RUN_TF} fmt -recursive
 
 zip:
-	zip -r terraform/modules/gcf/rss bots/rss -x "*.env"
+	(cd bots/rss && zip -r rss . -x "*.env" "cmd/*") && mv bots/rss/rss.zip terraform/modules/gcf/rss.zip

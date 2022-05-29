@@ -1,5 +1,6 @@
 .DS_Store
 .env
+bots/rss/vendor
 terraform/.terraform
 terraform/.terraformrc
 terraform/modules/gcf/rss.zip

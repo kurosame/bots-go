@@ -24,3 +24,10 @@ credential json needs to be changed as follows
 vi credential.json
 %s;\n; ;g # Remove line feed code
 ```
+
+## Terraform is not supported
+
+The following resources are not supported by Terraform  
+So create it from the GCP Console
+
+- Create a Datastore entity

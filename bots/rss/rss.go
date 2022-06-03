@@ -23,7 +23,7 @@ func FilterTwitterRSS(w http.ResponseWriter, r *http.Request) {
 	conversation, err := bot.GetConversationHistory(
 		&slack.GetConversationHistoryParameters{
 			ChannelID: os.Getenv("SLACK_CHANNEL_ID"),
-			Oldest:    "1654158878.323849",
+			Oldest:    "1654231477.168869",
 		},
 	)
 	if err != nil {
@@ -36,7 +36,7 @@ func FilterTwitterRSS(w http.ResponseWriter, r *http.Request) {
 	}
 	defer client.Close()
 
-	keywords, err := client.GetAll(ctx, datastore.NewQuery("Keyword").KeysOnly(), nil)
+	keywords, err := client.GetAll(ctx, datastore.NewQuery("Keyword").Namespace("TwitterRSSFilter").KeysOnly(), nil)
 	if err != nil {
 		log.Fatal(err)
 	}

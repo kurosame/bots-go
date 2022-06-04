@@ -2,6 +2,7 @@ resource "google_cloudfunctions_function" "this" {
   name                  = "twitter-rss-filter"
   runtime               = "go116"
   available_memory_mb   = 128
+  timeout               = 540
   source_archive_bucket = google_storage_bucket.this.name
   source_archive_object = google_storage_bucket_object.this.name
   trigger_http          = true

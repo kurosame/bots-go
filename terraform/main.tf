@@ -1,3 +1,8 @@
 module "gcf" {
   source = "./modules/gcf"
+
+  GOOGLE_PROJECT_ID      = var.GOOGLE_PROJECT_ID
+  SLACK_USER_OAUTH_TOKEN = var.SLACK_USER_OAUTH_TOKEN
+  SLACK_BOT_OAUTH_TOKEN  = var.SLACK_BOT_OAUTH_TOKEN
+  SLACK_CHANNEL_ID       = var.SLACK_CHANNEL_ID
 }

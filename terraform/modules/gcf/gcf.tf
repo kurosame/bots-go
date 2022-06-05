@@ -7,6 +7,13 @@ resource "google_cloudfunctions_function" "this" {
   source_archive_object = google_storage_bucket_object.this.name
   trigger_http          = true
   entry_point           = "FilterTwitterRSS"
+
+  environment_variables = {
+    GCP_PROJECT_ID         = var.GOOGLE_PROJECT_ID
+    SLACK_USER_OAUTH_TOKEN = var.SLACK_USER_OAUTH_TOKEN
+    SLACK_BOT_OAUTH_TOKEN  = var.SLACK_BOT_OAUTH_TOKEN
+    SLACK_CHANNEL_ID       = var.SLACK_CHANNEL_ID
+  }
 }
 
 resource "google_cloudfunctions_function_iam_member" "this" {

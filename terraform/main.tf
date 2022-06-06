@@ -1,5 +1,5 @@
-module "gcf" {
-  source = "./modules/gcf"
+module "functions" {
+  source = "./modules/functions"
 
   GOOGLE_PROJECT_ID      = var.GOOGLE_PROJECT_ID
   SLACK_USER_OAUTH_TOKEN = var.SLACK_USER_OAUTH_TOKEN

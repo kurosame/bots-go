@@ -2,6 +2,7 @@ package rss
 
 import (
 	"context"
+	"encoding/json"
 	"log"
 	"net/http"
 	"os"
@@ -33,8 +34,9 @@ func AddKeyword(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	qKeywords := strings.Split(r.URL.Query().Get("keyword"), ",")
-	for _, qk := range qKeywords {
+	qKws := strings.Split(r.URL.Query().Get("kw"), ",")
+	var addKws []string
+	for _, qk := range qKws {
 		s := strings.TrimSpace(strings.ToLower(qk))
 		if !contains(keywords, s) {
 			key := datastore.NameKey("Keyword", s, nil)
@@ -42,6 +44,8 @@ func AddKeyword(w http.ResponseWriter, r *http.Request) {
 			if _, err := client.Put(ctx, key, &struct{}{}); err != nil {
 				log.Fatal(err)
 			}
+			addKws = append(addKws, s)
 		}
 	}
+	json.NewEncoder(w).Encode(addKws)
 }

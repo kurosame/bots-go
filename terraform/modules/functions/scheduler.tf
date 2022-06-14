@@ -8,7 +8,7 @@ resource "google_cloud_scheduler_job" "this" {
 
   http_target {
     http_method = "POST"
-    uri         = google_cloudfunctions_function.this.https_trigger_url
+    uri         = google_cloudfunctions_function.twitter_rss_filter.https_trigger_url
     headers = {
       "Content-Type" = "application/json"
     }

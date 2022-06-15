@@ -66,7 +66,9 @@ func FilterTwitterRSS(w http.ResponseWriter, r *http.Request) {
 
 		for _, k := range keywords {
 			if strings.Contains(text, k.Name) {
-				user.AddStar(os.Getenv("SLACK_CHANNEL_ID"), slack.ItemRef{Timestamp: m.Timestamp})
+				if err := user.AddStar(os.Getenv("SLACK_CHANNEL_ID"), slack.ItemRef{Timestamp: m.Timestamp}); err != nil {
+					log.Fatal(err)
+				}
 				time.Sleep(time.Second * 3)
 				break
 			}

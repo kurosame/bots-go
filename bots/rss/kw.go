@@ -47,5 +47,7 @@ func AddKeyword(w http.ResponseWriter, r *http.Request) {
 			addKws = append(addKws, s)
 		}
 	}
-	json.NewEncoder(w).Encode(addKws)
+	if err := json.NewEncoder(w).Encode(addKws); err != nil {
+		log.Fatal(err)
+	}
 }

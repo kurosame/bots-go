@@ -7,6 +7,7 @@ Filter the Twitter list for RSS
 To run it, create `.env` file then set the following
 
 ```sh
+GCP_PROJECT_ID         # GCP project id
 SLACK_USER_OAUTH_TOKEN # Slack user oauth token
 SLACK_BOT_OAUTH_TOKEN  # Slack bot oauth token
 SLACK_CHANNEL_ID       # Slack channel to filter

@@ -69,7 +69,7 @@ func FilterTwitterRSS(w http.ResponseWriter, r *http.Request) {
 				if err := user.AddStar(os.Getenv("SLACK_CHANNEL_ID"), slack.ItemRef{Timestamp: m.Timestamp}); err != nil {
 					log.Fatal(err)
 				}
-				time.Sleep(time.Second * 3)
+				time.Sleep(time.Second * 3) // The Slack API stars.add is Tier 2 (allows at least 20 requests per minute)
 				break
 			}
 		}

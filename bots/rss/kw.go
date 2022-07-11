@@ -29,7 +29,7 @@ func AddKeyword(w http.ResponseWriter, r *http.Request) {
 	}
 	defer client.Close()
 
-	keywords, err := client.GetAll(ctx, datastore.NewQuery("Keyword").Namespace("TwitterRSSFilter").KeysOnly(), nil)
+	kws, err := client.GetAll(ctx, datastore.NewQuery("Keyword").Namespace("TwitterRSSFilter").KeysOnly(), nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -38,7 +38,7 @@ func AddKeyword(w http.ResponseWriter, r *http.Request) {
 	var addKws []string
 	for _, qk := range qKws {
 		s := strings.TrimSpace(strings.ToLower(qk))
-		if s != "" && !contains(keywords, s) {
+		if s != "" && !contains(kws, s) {
 			key := datastore.NameKey("Keyword", s, nil)
 			key.Namespace = "TwitterRSSFilter"
 			if _, err := client.Put(ctx, key, &struct{}{}); err != nil {

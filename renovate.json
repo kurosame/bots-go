@@ -7,7 +7,7 @@
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
-      "matchUpdateTypes": ["patch"],
+      "matchUpdateTypes": ["patch", "pin", "lockFileMaintenance"],
       "groupName": "all patch dependencies",
       "groupSlug": "all-patch"
     }

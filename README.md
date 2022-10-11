@@ -22,8 +22,7 @@ Create a service account key and set `GOOGLE_CREDENTIALS` in Terraform Cloud Var
 credential json needs to be changed as follows
 
 ```sh
-vi credential.json
-%s;\n; ;g # Remove line feed code
+cat credential.json | tr -s '\n' ' ' # Remove line feed code
 ```
 
 ## Terraform is not supported

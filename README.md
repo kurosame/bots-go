@@ -13,7 +13,14 @@ SLACK_BOT_OAUTH_TOKEN  # Slack bot oauth token
 SLACK_CHANNEL_ID       # Slack channel to filter
 ```
 
-## IAM setup for Terraform
+## [JSON to Firestore](https://github.com/kurosame/json2firestore)
+
+Read jsonl file and add/update to Firestore  
+Not a generic implementation
+
+## Terraform
+
+### IAM setup for Terraform
 
 Created a `bots-go-tf` IAM service account from the GCP Console  
 `bots-go-tf` has a owner roles of the GCP resources to attached
@@ -25,7 +32,7 @@ credential json needs to be changed as follows
 cat credential.json | tr -s '\n' ' ' # Remove line feed code
 ```
 
-## Terraform is not supported
+### Terraform is not supported
 
 The following resources are not supported by Terraform  
 So create it from the GCP Console

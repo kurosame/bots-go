@@ -13,6 +13,7 @@ resource "google_cloudfunctions_function" "twitter_rss_filter" {
     SLACK_USER_OAUTH_TOKEN = var.SLACK_USER_OAUTH_TOKEN
     SLACK_BOT_OAUTH_TOKEN  = var.SLACK_BOT_OAUTH_TOKEN
     SLACK_CHANNEL_ID       = var.SLACK_CHANNEL_ID
+    SLACK_CHANNEL_ID_RSS   = var.SLACK_CHANNEL_ID_RSS
   }
 }
 

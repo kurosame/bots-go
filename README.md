@@ -10,7 +10,8 @@ To run it, create `.env` file then set the following
 GCP_PROJECT_ID         # GCP project id
 SLACK_USER_OAUTH_TOKEN # Slack user oauth token
 SLACK_BOT_OAUTH_TOKEN  # Slack bot oauth token
-SLACK_CHANNEL_ID       # Slack channel to filter
+SLACK_CHANNEL_ID       # Slack channel id (for posting)
+SLACK_CHANNEL_ID_RSS   # Slack channel id (for RSS)
 ```
 
 ## [JSON to Firestore](https://github.com/kurosame/json2firestore)

@@ -13,3 +13,7 @@ variable "SLACK_BOT_OAUTH_TOKEN" {
 variable "SLACK_CHANNEL_ID" {
   type = string
 }
+
+variable "SLACK_CHANNEL_ID_RSS" {
+  type = string
+}

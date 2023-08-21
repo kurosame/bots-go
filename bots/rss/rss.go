@@ -20,7 +20,7 @@ type Timestamp struct {
 
 func FilterTwitterRSS(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
-	user := slack.New(os.Getenv("SLACK_USER_OAUTH_TOKEN"), slack.OptionDebug(true))
+	// user := slack.New(os.Getenv("SLACK_USER_OAUTH_TOKEN"), slack.OptionDebug(true))
 	bot := slack.New(os.Getenv("SLACK_BOT_OAUTH_TOKEN"), slack.OptionDebug(true))
 
 	client, err := datastore.NewClient(ctx, os.Getenv("GCP_PROJECT_ID"))
@@ -40,7 +40,7 @@ func FilterTwitterRSS(w http.ResponseWriter, r *http.Request) {
 
 	conversation, err := bot.GetConversationHistory(
 		&slack.GetConversationHistoryParameters{
-			ChannelID: os.Getenv("SLACK_CHANNEL_ID"),
+			ChannelID: os.Getenv("SLACK_CHANNEL_ID_RSS"),
 			Oldest:    tss[0].Timestamp,
 		},
 	)
@@ -66,10 +66,11 @@ func FilterTwitterRSS(w http.ResponseWriter, r *http.Request) {
 
 		for _, k := range keywords {
 			if strings.Contains(text, k.Name) {
-				if err := user.AddStar(os.Getenv("SLACK_CHANNEL_ID"), slack.ItemRef{Timestamp: m.Timestamp}); err != nil {
+				_, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID"), slack.MsgOptionText(m.Text, false))
+				if err != nil {
 					log.Fatal(err)
 				}
-				time.Sleep(time.Second * 3) // The Slack API stars.add is Tier 2 (allows at least 20 requests per minute)
+				time.Sleep(time.Second * 1) // The Slack API chat.postMessage is Special Tier (allows at least 1 message per second)
 				break
 			}
 		}

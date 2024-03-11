@@ -5,6 +5,7 @@ resource "google_cloudfunctions_function" "twitter_rss_filter" {
   timeout               = 540
   source_archive_bucket = google_storage_bucket.this.name
   source_archive_object = google_storage_bucket_object.this.name
+  docker_registry       = "ARTIFACT_REGISTRY"
   trigger_http          = true
   entry_point           = "FilterTwitterRSS"
 
@@ -32,6 +33,7 @@ resource "google_cloudfunctions_function" "twitter_rss_filter_add_keyword" {
   timeout               = 60
   source_archive_bucket = google_storage_bucket.this.name
   source_archive_object = google_storage_bucket_object.this.name
+  docker_registry       = "ARTIFACT_REGISTRY"
   trigger_http          = true
   entry_point           = "AddKeyword"
 

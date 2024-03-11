@@ -14,6 +14,23 @@ SLACK_CHANNEL_ID       # Slack channel id (for posting)
 SLACK_CHANNEL_ID_RSS   # Slack channel id (for RSS)
 ```
 
+Deploy to the Cloud Functions are as follows
+
+```sh
+make zip
+make apply
+```
+
+### Run manually
+
+```sh
+# Add filter keyword
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-identity-token)" \
+-H "Content-Type: application/json" \
+https://asia-northeast1-【GCP ProjectID】.cloudfunctions.net/twitter-rss-filter-add-keyword\?kw\=kw1,kw2,kw3
+```
+
 ## [JSON to Firestore](https://github.com/kurosame/json2firestore)
 
 Read jsonl file and add/update to Firestore  

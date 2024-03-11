@@ -1,3 +1,13 @@
 {
-  "cSpell.words": ["automerge", "firestore", "funcframework", "godotenv", "hashicorp", "joho", "kurosame"]
+  "cSpell.words": [
+    "automerge",
+    "cloudfunctions",
+    "firestore",
+    "funcframework",
+    "gcloud",
+    "godotenv",
+    "hashicorp",
+    "joho",
+    "kurosame"
+  ]
 }

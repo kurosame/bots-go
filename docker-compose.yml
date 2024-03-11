@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   tf:
-    image: hashicorp/terraform:1.2.4
+    image: hashicorp/terraform:1.7.4
     volumes:
       - ./terraform:/terraform
     working_dir: /terraform

@@ -15,5 +15,7 @@ func main() {
 
 	http.HandleFunc("/", rss.FilterTwitterRSS)
 	http.HandleFunc("/kw", rss.AddKeyword)
+	http.HandleFunc("/token", rss.SetToken)
+
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

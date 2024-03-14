@@ -5,4 +5,4 @@
 bots/rss/vendor
 terraform/.terraform
 terraform/.terraformrc
-terraform/modules/functions/rss.zip
+terraform/modules/rss/rss.zip

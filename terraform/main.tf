@@ -1,5 +1,5 @@
-module "functions" {
-  source = "./modules/functions"
+module "rss" {
+  source = "./modules/rss"
 
   GOOGLE_PROJECT_ID      = var.GOOGLE_PROJECT_ID
   SLACK_USER_OAUTH_TOKEN = var.SLACK_USER_OAUTH_TOKEN

@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "apiv",
     "automerge",
     "cloudfunctions",
     "firestore",
@@ -8,6 +9,8 @@
     "godotenv",
     "hashicorp",
     "joho",
-    "kurosame"
+    "kurosame",
+    "secretmanager",
+    "secretmanagerpb"
   ]
 }

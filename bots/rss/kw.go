@@ -23,7 +23,7 @@ func contains(dks []*datastore.Key, s string) bool {
 func AddKeyword(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 
-	client, err := datastore.NewClient(ctx, os.Getenv("GCP_PROJECT_ID"))
+	client, err := datastore.NewClient(ctx, os.Getenv("GOOGLE_PROJECT_ID"))
 	if err != nil {
 		log.Fatal(err)
 	}

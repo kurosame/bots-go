@@ -7,7 +7,8 @@ Filter the Twitter list for RSS
 To run it, create `.env` file then set the following
 
 ```sh
-GCP_PROJECT_ID         # GCP project id
+GOOGLE_PROJECT_ID      # GCP project id
+GOOGLE_PROJECT_NUMBER  # GCP project number
 SLACK_USER_OAUTH_TOKEN # Slack user oauth token
 SLACK_BOT_OAUTH_TOKEN  # Slack bot oauth token
 SLACK_CHANNEL_ID       # Slack channel id (for posting)
@@ -29,6 +30,12 @@ curl -X POST \
 -H "Authorization: Bearer $(gcloud auth print-identity-token)" \
 -H "Content-Type: application/json" \
 https://asia-northeast1-【GCP ProjectID】.cloudfunctions.net/twitter-rss-filter-add-keyword\?kw\=kw1,kw2,kw3
+
+# Set RSS.app token
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-identity-token)" \
+-H "Content-Type: application/json" \
+https://asia-northeast1-【GCP ProjectID】.cloudfunctions.net/twitter-rss-filter-set-token\?token\=token_value
 ```
 
 ## [JSON to Firestore](https://github.com/kurosame/json2firestore)

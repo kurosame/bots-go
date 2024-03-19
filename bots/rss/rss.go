@@ -23,7 +23,7 @@ func FilterTwitterRSS(w http.ResponseWriter, r *http.Request) {
 	// user := slack.New(os.Getenv("SLACK_USER_OAUTH_TOKEN"), slack.OptionDebug(true))
 	bot := slack.New(os.Getenv("SLACK_BOT_OAUTH_TOKEN"), slack.OptionDebug(true))
 
-	client, err := datastore.NewClient(ctx, os.Getenv("GCP_PROJECT_ID"))
+	client, err := datastore.NewClient(ctx, os.Getenv("GOOGLE_PROJECT_ID"))
 	if err != nil {
 		log.Fatal(err)
 	}

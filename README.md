@@ -13,6 +13,8 @@ SLACK_USER_OAUTH_TOKEN # Slack user oauth token
 SLACK_BOT_OAUTH_TOKEN  # Slack bot oauth token
 SLACK_CHANNEL_ID       # Slack channel id (for posting)
 SLACK_CHANNEL_ID_RSS   # Slack channel id (for RSS)
+RSSAPP_ID_TWITTER      # RSS.app id (for media-twitter)
+RSSAPP_ID_LIKE         # RSS.app id (for news-like)
 ```
 
 Deploy to the Cloud Functions are as follows

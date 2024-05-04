@@ -1,11 +1,12 @@
 module github.com/kurosame/bots-go/bots/rss
 
-go 1.19
+go 1.21
 
 require (
 	cloud.google.com/go/datastore v1.15.0
 	cloud.google.com/go/secretmanager v1.11.1
 	github.com/GoogleCloudPlatform/functions-framework-go v1.5.3
+	github.com/hasura/go-graphql-client v0.12.1
 	github.com/joho/godotenv v1.4.0
 	github.com/slack-go/slack v0.11.0
 )
@@ -21,7 +22,7 @@ require (
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/google/s2a-go v0.1.4 // indirect
-	github.com/google/uuid v1.3.0 // indirect
+	github.com/google/uuid v1.6.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.2.4 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.0 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
@@ -46,4 +47,5 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230803162519-f966b187b2e5 // indirect
 	google.golang.org/grpc v1.57.1 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
+	nhooyr.io/websocket v1.8.10 // indirect
 )

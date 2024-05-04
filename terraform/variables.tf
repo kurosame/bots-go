@@ -21,3 +21,11 @@ variable "SLACK_CHANNEL_ID" {
 variable "SLACK_CHANNEL_ID_RSS" {
   type = string
 }
+
+variable "RSSAPP_ID_TWITTER" {
+  type = string
+}
+
+variable "RSSAPP_ID_LIKE" {
+  type = string
+}

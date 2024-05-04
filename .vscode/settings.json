@@ -8,8 +8,10 @@
     "gcloud",
     "godotenv",
     "hashicorp",
+    "hasura",
     "joho",
     "kurosame",
+    "rssapp",
     "secretmanager",
     "secretmanagerpb"
   ]

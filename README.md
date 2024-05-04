@@ -7,14 +7,15 @@ Filter the Twitter list for RSS
 To run it, create `.env` file then set the following
 
 ```sh
-GOOGLE_PROJECT_ID      # GCP project id
-GOOGLE_PROJECT_NUMBER  # GCP project number
-SLACK_USER_OAUTH_TOKEN # Slack user oauth token
-SLACK_BOT_OAUTH_TOKEN  # Slack bot oauth token
-SLACK_CHANNEL_ID       # Slack channel id (for posting)
-SLACK_CHANNEL_ID_RSS   # Slack channel id (for RSS)
-RSSAPP_ID_TWITTER      # RSS.app id (for media-twitter)
-RSSAPP_ID_LIKE         # RSS.app id (for news-like)
+GOOGLE_PROJECT_ID            # GCP project id
+GOOGLE_PROJECT_NUMBER        # GCP project number
+SLACK_USER_OAUTH_TOKEN       # Slack user oauth token
+SLACK_BOT_OAUTH_TOKEN        # Slack bot oauth token
+SLACK_CHANNEL_ID_RSS         # Slack channel id (for #event-rss)
+SLACK_CHANNEL_ID_TWITTER     # Slack channel id (for #media-twitter)
+SLACK_CHANNEL_ID_TWITTER_RSS # Slack channel id (for #media-twitter-rss)
+RSSAPP_ID_TWITTER            # RSS.app id (for media-twitter)
+RSSAPP_ID_LIKE               # RSS.app id (for news-like)
 ```
 
 Deploy to the Cloud Functions are as follows

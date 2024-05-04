@@ -40,7 +40,7 @@ func FilterTwitterRSS(w http.ResponseWriter, r *http.Request) {
 
 	conversation, err := bot.GetConversationHistory(
 		&slack.GetConversationHistoryParameters{
-			ChannelID: os.Getenv("SLACK_CHANNEL_ID_RSS"),
+			ChannelID: os.Getenv("SLACK_CHANNEL_ID_TWITTER_RSS"),
 			Oldest:    tss[0].Timestamp,
 		},
 	)
@@ -66,7 +66,7 @@ func FilterTwitterRSS(w http.ResponseWriter, r *http.Request) {
 
 		for _, k := range keywords {
 			if strings.Contains(text, k.Name) {
-				_, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID"), slack.MsgOptionText(m.Text, false), slack.MsgOptionAsUser(false))
+				_, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_TWITTER"), slack.MsgOptionText(m.Text, false), slack.MsgOptionAsUser(false))
 				if err != nil {
 					log.Fatal(err)
 				}

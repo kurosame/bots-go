@@ -11,11 +11,11 @@ resource "google_cloudfunctions_function" "twitter_rss_filter" {
   service_account_email = google_service_account.this.email
 
   environment_variables = {
-    GOOGLE_PROJECT_ID      = var.GOOGLE_PROJECT_ID
-    SLACK_USER_OAUTH_TOKEN = var.SLACK_USER_OAUTH_TOKEN
-    SLACK_BOT_OAUTH_TOKEN  = var.SLACK_BOT_OAUTH_TOKEN
-    SLACK_CHANNEL_ID       = var.SLACK_CHANNEL_ID
-    SLACK_CHANNEL_ID_RSS   = var.SLACK_CHANNEL_ID_RSS
+    GOOGLE_PROJECT_ID            = var.GOOGLE_PROJECT_ID
+    SLACK_USER_OAUTH_TOKEN       = var.SLACK_USER_OAUTH_TOKEN
+    SLACK_BOT_OAUTH_TOKEN        = var.SLACK_BOT_OAUTH_TOKEN
+    SLACK_CHANNEL_ID_TWITTER     = var.SLACK_CHANNEL_ID_TWITTER
+    SLACK_CHANNEL_ID_TWITTER_RSS = var.SLACK_CHANNEL_ID_TWITTER_RSS
   }
 }
 

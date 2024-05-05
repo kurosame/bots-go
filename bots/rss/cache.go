@@ -10,10 +10,12 @@ import (
 	secretmanager "cloud.google.com/go/secretmanager/apiv1"
 	"cloud.google.com/go/secretmanager/apiv1/secretmanagerpb"
 	"github.com/hasura/go-graphql-client"
+	"github.com/slack-go/slack"
 )
 
 func ClearCache(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
+	bot := slack.New(os.Getenv("SLACK_BOT_OAUTH_TOKEN"), slack.OptionDebug(true))
 
 	clientSm, err := secretmanager.NewClient(ctx)
 	if err != nil {
@@ -49,11 +51,17 @@ func ClearCache(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	print(string(resTwitter))
+
+	if _, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_RSS"), slack.MsgOptionText(fmt.Sprintf("Twitter response: %s", string(resTwitter)), false), slack.MsgOptionAsUser(false)); err != nil {
+		log.Fatal(err)
+	}
 
 	resLike, err := clientGql.MutateRaw(ctx, m, varLike, graphql.OperationName("clearFeedCache"))
 	if err != nil {
 		log.Fatal(err)
 	}
-	print(string(resLike))
+
+	if _, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_RSS"), slack.MsgOptionText(fmt.Sprintf("Like response: %s", string(resLike)), false), slack.MsgOptionAsUser(false)); err != nil {
+		log.Fatal(err)
+	}
 }

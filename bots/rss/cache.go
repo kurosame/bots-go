@@ -49,6 +49,9 @@ func ClearCache(w http.ResponseWriter, r *http.Request) {
 
 	resTwitter, err := clientGql.MutateRaw(ctx, m, varTwitter, graphql.OperationName("clearFeedCache"))
 	if err != nil {
+		if _, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_RSS"), slack.MsgOptionText(fmt.Sprintf("Twitter response error: %s", err.Error()), false), slack.MsgOptionAsUser(false)); err != nil {
+			log.Fatal(err)
+		}
 		log.Fatal(err)
 	}
 
@@ -58,6 +61,9 @@ func ClearCache(w http.ResponseWriter, r *http.Request) {
 
 	resLike, err := clientGql.MutateRaw(ctx, m, varLike, graphql.OperationName("clearFeedCache"))
 	if err != nil {
+		if _, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_RSS"), slack.MsgOptionText(fmt.Sprintf("Like response error: %s", err.Error()), false), slack.MsgOptionAsUser(false)); err != nil {
+			log.Fatal(err)
+		}
 		log.Fatal(err)
 	}
 

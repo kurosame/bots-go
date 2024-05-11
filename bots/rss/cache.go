@@ -48,26 +48,24 @@ func ClearCache(w http.ResponseWriter, r *http.Request) {
 	}
 
 	resTwitter, err := clientGql.MutateRaw(ctx, m, varTwitter, graphql.OperationName("clearFeedCache"))
-	if err != nil {
-		if _, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_RSS"), slack.MsgOptionText(fmt.Sprintf("Twitter response error: %s", err.Error()), false), slack.MsgOptionAsUser(false)); err != nil {
-			log.Fatal(err)
-		}
-		log.Fatal(err)
+	var textTwitter slack.MsgOption
+	if err == nil {
+		textTwitter = slack.MsgOptionText(fmt.Sprintf("Twitter response: %s", string(resTwitter)), false)
+	} else {
+		textTwitter = slack.MsgOptionText(fmt.Sprintf("Twitter response error: %s", err.Error()), false)
 	}
-
-	if _, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_RSS"), slack.MsgOptionText(fmt.Sprintf("Twitter response: %s", string(resTwitter)), false), slack.MsgOptionAsUser(false)); err != nil {
+	if _, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_RSS"), textTwitter, slack.MsgOptionAsUser(false)); err != nil {
 		log.Fatal(err)
 	}
 
 	resLike, err := clientGql.MutateRaw(ctx, m, varLike, graphql.OperationName("clearFeedCache"))
-	if err != nil {
-		if _, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_RSS"), slack.MsgOptionText(fmt.Sprintf("Like response error: %s", err.Error()), false), slack.MsgOptionAsUser(false)); err != nil {
-			log.Fatal(err)
-		}
-		log.Fatal(err)
+	var textLike slack.MsgOption
+	if err == nil {
+		textLike = slack.MsgOptionText(fmt.Sprintf("Like response: %s", string(resLike)), false)
+	} else {
+		textLike = slack.MsgOptionText(fmt.Sprintf("Like response error: %s", err.Error()), false)
 	}
-
-	if _, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_RSS"), slack.MsgOptionText(fmt.Sprintf("Like response: %s", string(resLike)), false), slack.MsgOptionAsUser(false)); err != nil {
+	if _, _, err := bot.PostMessage(os.Getenv("SLACK_CHANNEL_ID_RSS"), textLike, slack.MsgOptionAsUser(false)); err != nil {
 		log.Fatal(err)
 	}
 }

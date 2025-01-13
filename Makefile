@@ -1,4 +1,4 @@
-RUN_TF = docker-compose run tf
+RUN_TF = docker compose run tf
 
 set-token:
 	echo 'credentials "app.terraform.io" { token = "${TF_TOKEN}" }' > ./terraform/.terraformrc

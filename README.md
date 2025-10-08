@@ -66,3 +66,23 @@ The following resources are not supported by Terraform
 So create it from the GCP Console
 
 - Create a Datastore entity
+
+## Setup for Claude Code
+
+Execute the following command.
+
+```sh
+ln -s ~/ghq/github.com/kurosame/dotfiles/.claude/.mcp.json .
+
+npx cc-sdd@latest --lang ja # generate .claude/commands/kiro
+
+claude # Start Claude Code
+
+/init                    # generate CLAUDE.md
+/mcp__serena__onboarding # generate .serena
+/kiro:steering           # generate .kiro/steering
+
+codex # Start Codex
+
+/init # generate AGENTS.md
+```

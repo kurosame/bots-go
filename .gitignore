@@ -1,6 +1,4 @@
-.serena/cache/
-.serena/memories/
-.serena/.gitignore
+.serena/
 .DS_Store
 .env
 .vscode/*.log

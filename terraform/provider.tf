@@ -1,5 +1,5 @@
 terraform {
-  required_version = "1.7.4"
+  required_version = "1.13.3"
 
   cloud {
     organization = "kurosame"

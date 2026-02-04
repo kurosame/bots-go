@@ -1,6 +1,6 @@
 module github.com/kurosame/bots-go/bots/rss
 
-go 1.21
+go 1.25.7
 
 require (
 	cloud.google.com/go/datastore v1.15.0

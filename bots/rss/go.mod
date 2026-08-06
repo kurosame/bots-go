@@ -1,6 +1,6 @@
 module github.com/kurosame/bots-go/bots/rss
 
-go 1.21
+go 1.25
 
 require (
 	cloud.google.com/go/datastore v1.15.0
@@ -8,7 +8,7 @@ require (
 	github.com/GoogleCloudPlatform/functions-framework-go v1.5.3
 	github.com/hasura/go-graphql-client v0.12.1
 	github.com/joho/godotenv v1.4.0
-	github.com/slack-go/slack v0.11.0
+	github.com/slack-go/slack v0.23.1
 )
 
 require (
@@ -25,7 +25,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.2.4 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.0 // indirect
-	github.com/gorilla/websocket v1.4.2 // indirect
+	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/json-iterator/go v1.1.10 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
 	github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742 // indirect
